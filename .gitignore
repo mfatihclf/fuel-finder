@@ -1,0 +1,88 @@
+# ============================================================
+# fuel-finder — Python Akaryakıt Fiyat Scraper
+# ============================================================
+
+# ----------------------------------
+# Python
+# ----------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pdb
+
+# ----------------------------------
+# Sanal ortam
+# ----------------------------------
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ----------------------------------
+# Dağıtım / kurulum
+# ----------------------------------
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+MANIFEST
+
+# ----------------------------------
+# Araç cache'leri
+# ----------------------------------
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# ----------------------------------
+# Çıktı dosyaları (script çıktısı)
+# ----------------------------------
+*.csv
+*.json
+*.xlsx
+*.txt
+
+# ----------------------------------
+# Ortam değişkenleri / gizli ayarlar
+# ----------------------------------
+.env
+.env.*
+secrets.py
+config_local.py
+
+# ----------------------------------
+# Editör / IDE
+# ----------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ----------------------------------
+# Jupyter Notebook
+# ----------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# ----------------------------------
+# Geçici / debug dosyaları
+# ----------------------------------
+tmp/
+temp/
+debug_*.py
+test_*.py
+scratch_*.py
