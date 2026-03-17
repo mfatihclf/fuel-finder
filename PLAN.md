@@ -31,13 +31,13 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 3: Flutter Veri Modelleri ve Servis Katmani
+## Adim 3: Flutter Veri Modelleri ve Servis Katmani ✓ TAMAMLANDI
 **Branch:** `feature/data-models`
 
-- [ ] Dart data modelleri (`FuelPrice`, `Station` vb.)
-- [ ] API servis sinifi (HTTP client - `dio` veya `http` paketi)
-- [ ] Backend ile haberlesme altyapisi
-- [ ] Hata yonetimi (network error, timeout vb.)
+- [x] Dart data modelleri (`FuelPrice`, `City`, `PricesResult` vb.)
+- [x] API servis sinifi (HTTP client - `http` paketi)
+- [x] Backend ile haberlesme altyapisi
+- [x] Hata yonetimi (network error, timeout vb.)
 
 ---
 
