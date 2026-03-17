@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import '../models/fuel_price.dart';
 import '../services/api_service.dart';
 import '../services/exceptions.dart';
+import '../widgets/station_map.dart';
 
 enum _SortMode { cheapest, byDistrict }
+
+enum _ViewMode { list, map }
 
 class ResultsScreen extends StatefulWidget {
   final String city;
@@ -28,6 +31,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
   bool _isLoading = true;
   String? _error;
   _SortMode _sortMode = _SortMode.cheapest;
+  _ViewMode _viewMode = _ViewMode.list;
 
   @override
   void initState() {
@@ -102,6 +106,21 @@ class _ResultsScreenState extends State<ResultsScreen> {
         backgroundColor: cs.primary,
         foregroundColor: cs.onPrimary,
         elevation: 2,
+        actions: [
+          if (!_isLoading && _error == null && _prices.isNotEmpty)
+            IconButton(
+              onPressed: () => setState(() {
+                _viewMode =
+                    _viewMode == _ViewMode.list ? _ViewMode.map : _ViewMode.list;
+              }),
+              icon: Icon(
+                _viewMode == _ViewMode.list ? Icons.map : Icons.list,
+              ),
+              tooltip: _viewMode == _ViewMode.list
+                  ? 'Haritada Goster'
+                  : 'Listede Goster',
+            ),
+        ],
       ),
       body: _buildBody(cs),
     );
@@ -117,23 +136,29 @@ class _ResultsScreenState extends State<ResultsScreen> {
     if (_prices.isEmpty) {
       return _EmptyView(city: widget.city, fuelType: widget.fuelType);
     }
-    return Column(
+    return IndexedStack(
+      index: _viewMode == _ViewMode.list ? 0 : 1,
       children: [
-        _SortBar(
-          current: _sortMode,
-          onChanged: (mode) => setState(() => _sortMode = mode),
-          count: _prices.length,
-        ),
-        Expanded(
-          child: ListView.builder(
-            padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
-            itemCount: _sortedPrices.length,
-            itemBuilder: (context, index) => _StationCard(
-              price: _sortedPrices[index],
-              rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
+        Column(
+          children: [
+            _SortBar(
+              current: _sortMode,
+              onChanged: (mode) => setState(() => _sortMode = mode),
+              count: _prices.length,
             ),
-          ),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
+                itemCount: _sortedPrices.length,
+                itemBuilder: (context, index) => _StationCard(
+                  price: _sortedPrices[index],
+                  rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
+                ),
+              ),
+            ),
+          ],
         ),
+        StationMap(prices: _prices, city: widget.city),
       ],
     );
   }
