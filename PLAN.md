@@ -88,13 +88,15 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 8: Istasyon Detay Ekrani
+## Adim 8: Istasyon Detay Ekrani ✓ TAMAMLANDI
 **Branch:** `feature/station-detail`
 
-- [ ] Tum yakit turlerinin fiyatlari
-- [ ] Adres, mesafe bilgisi
-- [ ] Navigasyona yonlendirme butonu
-- [ ] Marka logosu gosterimi
+- [x] Tum yakit turlerinin fiyatlari (API'den tum fiyatlar cekilir, istasyona filtre)
+- [x] Adres: ilce + sehir bilgisi, guncelleme tarihi
+- [x] Navigasyona yonlendirme butonu (Google Maps deep link, url_launcher)
+- [x] Marka logosu: marka renginde dolu daire + kisaltma (OP/BP/SH/PO/TE/AY/TP)
+- [x] Arama yapilan yakit turu fiyat satirinda vurgulanir
+- [x] ResultsScreen karti tiklayinca StationDetailScreen'e navigate
 
 ---
 
