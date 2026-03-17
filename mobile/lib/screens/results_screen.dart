@@ -4,6 +4,7 @@ import '../models/fuel_price.dart';
 import '../services/api_service.dart';
 import '../services/exceptions.dart';
 import '../widgets/station_map.dart';
+import 'station_detail_screen.dart';
 
 enum _SortMode { cheapest, byDistrict }
 
@@ -150,10 +151,23 @@ class _ResultsScreenState extends State<ResultsScreen> {
               child: ListView.builder(
                 padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
                 itemCount: _sortedPrices.length,
-                itemBuilder: (context, index) => _StationCard(
-                  price: _sortedPrices[index],
-                  rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
-                ),
+                itemBuilder: (context, index) {
+                  final p = _sortedPrices[index];
+                  return _StationCard(
+                    price: p,
+                    rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => StationDetailScreen(
+                          stationName: p.station,
+                          city: widget.city,
+                          district: p.district,
+                          highlightFuelType: p.fuelType,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -228,8 +242,9 @@ class _SortBar extends StatelessWidget {
 class _StationCard extends StatelessWidget {
   final FuelPrice price;
   final int? rank;
+  final VoidCallback? onTap;
 
-  const _StationCard({required this.price, this.rank});
+  const _StationCard({required this.price, this.rank, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +254,10 @@ class _StationCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Row(
           children: [
@@ -309,6 +327,7 @@ class _StationCard extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 
