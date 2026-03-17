@@ -148,26 +148,29 @@ class _ResultsScreenState extends State<ResultsScreen> {
               count: _prices.length,
             ),
             Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
-                itemCount: _sortedPrices.length,
-                itemBuilder: (context, index) {
-                  final p = _sortedPrices[index];
-                  return _StationCard(
-                    price: p,
-                    rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => StationDetailScreen(
-                          stationName: p.station,
-                          city: widget.city,
-                          district: p.district,
-                          highlightFuelType: p.fuelType,
+              child: RefreshIndicator(
+                onRefresh: _fetchPrices,
+                child: ListView.builder(
+                  padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
+                  itemCount: _sortedPrices.length,
+                  itemBuilder: (context, index) {
+                    final p = _sortedPrices[index];
+                    return _StationCard(
+                      price: p,
+                      rank: _sortMode == _SortMode.cheapest ? index + 1 : null,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => StationDetailScreen(
+                            stationName: p.station,
+                            city: widget.city,
+                            district: p.district,
+                            highlightFuelType: p.fuelType,
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Splash screen arka plan rengi -->
+    <color name="splashBackground">#E53935</color>
+    <!-- Uygulama ikonu arka plan rengi (adaptive icon) -->
+    <color name="ic_launcher_background">#E53935</color>
+</resources>
