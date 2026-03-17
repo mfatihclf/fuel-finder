@@ -41,13 +41,13 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 4: Konum Servisi Entegrasyonu
+## Adim 4: Konum Servisi Entegrasyonu ✓ TAMAMLANDI
 **Branch:** `feature/location-service`
 
-- [ ] `geolocator` paketi ile kullanicinin anlik konumunu alma
-- [ ] Konum izni yonetimi (Android & iOS)
-- [ ] Mesafe hesaplama fonksiyonlari (kullanici <-> istasyon arasi km)
-- [ ] Konum alinamadiginda fallback davranisi
+- [x] `geolocator` + `geocoding` paketi ile kullanicinin anlik konumunu alma
+- [x] Konum izni yonetimi (Android & iOS)
+- [x] Mesafe hesaplama fonksiyonlari (Geolocator.distanceBetween + Haversine)
+- [x] Konum alinamadiginda fallback davranisi (LocationStatus enum)
 
 ---
 
