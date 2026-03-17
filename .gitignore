@@ -52,6 +52,7 @@ coverage.xml
 *.json
 *.xlsx
 *.txt
+!requirements.txt
 
 # ----------------------------------
 # Ortam değişkenleri / gizli ayarlar
