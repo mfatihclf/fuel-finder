@@ -75,13 +75,16 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 7: Harita Entegrasyonu
+## Adim 7: Harita Entegrasyonu ✓ TAMAMLANDI
 **Branch:** `feature/map-integration`
 
-- [ ] `google_maps_flutter` veya `flutter_map` ile harita gorunumu
-- [ ] Istasyonlarin harita uzerinde pin olarak gosterimi
-- [ ] Secilen istasyona navigasyon baslatma (Google Maps / Apple Maps deep link)
-- [ ] Liste ve harita gorunumu arasi gecis
+- [x] `flutter_map` (OpenStreetMap) ile harita gorunumu — API key gerektirmez
+- [x] İlce bazinda pin gosterimi (en ucuz fiyat balonu + konum ikonu)
+- [x] Navigasyon baslatma: Google Maps HTTPS deep link (url_launcher)
+- [x] Liste ↔ harita toggling (IndexedStack, AppBar IconButton)
+- [x] Pin'e tiklaninca ilce detay bottom sheet (tum istasyonlar + Yol Tarifi)
+- [x] Geocoding sirasinda yükleniyor göstergesi
+- [x] Android: INTERNET izni + url_launcher queries blogu eklendi
 
 ---
 

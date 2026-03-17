@@ -2,6 +2,8 @@
     <!-- Konum izinleri -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Harita ve URL launcher icin ag erisimi -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="fuel_finder"
         android:name="${applicationName}"
@@ -43,6 +45,11 @@
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- url_launcher: https linkleri acmak icin (harita navigasyonu) -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
         </intent>
     </queries>
 </manifest>
