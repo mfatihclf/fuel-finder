@@ -26,6 +26,11 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<!-- Konum izinleri -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Yakin akaryakit istasyonlarini bulmak icin konumunuza erisim gerekiyor.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Yakin akaryakit istasyonlarini bulmak icin konumunuza erisim gerekiyor.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
