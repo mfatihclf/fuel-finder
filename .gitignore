@@ -86,3 +86,12 @@ temp/
 debug_*.py
 test_*.py
 scratch_*.py
+
+# ----------------------------------
+# Flutter (mobile/)
+# Not: Detaylı kurallar mobile/.gitignore içinde
+# ----------------------------------
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.dart_tool/
+mobile/build/
