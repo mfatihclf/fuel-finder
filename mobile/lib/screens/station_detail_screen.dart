@@ -3,9 +3,11 @@ import 'dart:math' show min;
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../models/favorite_station.dart';
 import '../models/fuel_price.dart';
 import '../services/api_service.dart';
 import '../services/exceptions.dart';
+import '../services/settings_service.dart';
 
 class StationDetailScreen extends StatefulWidget {
   final String stationName;
@@ -37,13 +39,17 @@ class _StationDetailScreenState extends State<StationDetailScreen> {
   void initState() {
     super.initState();
     _fetchAll();
+    SettingsService.instance.addListener(_onFavoritesChanged);
   }
 
   @override
   void dispose() {
+    SettingsService.instance.removeListener(_onFavoritesChanged);
     _api.dispose();
     super.dispose();
   }
+
+  void _onFavoritesChanged() => setState(() {});
 
   Future<void> _fetchAll() async {
     setState(() {
@@ -100,6 +106,11 @@ class _StationDetailScreenState extends State<StationDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
+    final isFav = SettingsService.instance.isFavorite(
+      widget.stationName,
+      widget.city,
+      widget.district,
+    );
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -118,6 +129,19 @@ class _StationDetailScreenState extends State<StationDetailScreen> {
         backgroundColor: cs.primary,
         foregroundColor: cs.onPrimary,
         elevation: 2,
+        actions: [
+          IconButton(
+            onPressed: () => SettingsService.instance.toggleFavorite(
+              FavoriteStation(
+                station: widget.stationName,
+                city: widget.city,
+                district: widget.district,
+              ),
+            ),
+            icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
+            tooltip: isFav ? 'Favoriden Çıkar' : 'Favoriye Ekle',
+          ),
+        ],
       ),
       body: _buildBody(cs),
     );
