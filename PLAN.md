@@ -8,13 +8,13 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 1: Flutter Proje Kurulumu
+## Adim 1: Flutter Proje Kurulumu ✓ TAMAMLANDI
 **Branch:** `feature/flutter-init`
 
-- [ ] Flutter projesi olusturma (`flutter create`)
-- [ ] Temel klasor yapisini duzenleme (lib/screens, lib/widgets, lib/models, lib/services vb.)
-- [ ] Gereksiz boilerplate temizligi
-- [ ] `.gitignore` guncelleme
+- [x] Flutter projesi olusturma (`flutter create`)
+- [x] Temel klasor yapisini duzenleme (lib/screens, lib/widgets, lib/models, lib/services vb.)
+- [x] Gereksiz boilerplate temizligi
+- [x] `.gitignore` guncelleme
 
 ---
 
