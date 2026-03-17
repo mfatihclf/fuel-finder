@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../constants/fuel_types.dart';
 import '../services/location_service.dart';
+import '../services/settings_service.dart';
+import 'favorites_screen.dart';
 import 'results_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _selectedFuelType = SettingsService.instance.defaultFuelType;
+    _selectedRadius = SettingsService.instance.defaultRadius;
     _fetchLocation();
   }
 
@@ -93,6 +98,22 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: cs.primary,
         foregroundColor: cs.onPrimary,
         elevation: 2,
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const FavoritesScreen()),
+            ),
+            icon: const Icon(Icons.favorite_border),
+            tooltip: 'Favoriler',
+          ),
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const SettingsScreen()),
+            ),
+            icon: const Icon(Icons.settings_outlined),
+            tooltip: 'Ayarlar',
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),

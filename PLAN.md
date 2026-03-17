@@ -100,12 +100,12 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 9: Favoriler ve Ayarlar
+## Adim 9: Favoriler ve Ayarlar ✓ TAMAMLANDI
 **Branch:** `feature/favorites-settings`
 
-- [ ] Favori istasyonlari kaydetme (local storage - `shared_preferences` veya `hive`)
-- [ ] Varsayilan yakit turu ve yaricap ayarlari
-- [ ] Tema tercihi (acik/koyu)
+- [x] Favori istasyonlari kaydetme (local storage - `shared_preferences`)
+- [x] Varsayilan yakit turu ve yaricap ayarlari
+- [x] Tema tercihi (acik/koyu)
 
 ---
 
