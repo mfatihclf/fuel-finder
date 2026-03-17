@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../constants/fuel_types.dart';
 import '../services/settings_service.dart';
@@ -95,6 +96,8 @@ class _SettingsBody extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(height: 12),
+        const _VersionCard(),
       ],
     );
   }
@@ -150,6 +153,43 @@ class _ThemeSegment extends StatelessWidget {
       selected: {current},
       onSelectionChanged: (sel) =>
           SettingsService.instance.setThemeMode(sel.first),
+    );
+  }
+}
+
+class _VersionCard extends StatelessWidget {
+  const _VersionCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        final label = snapshot.hasData
+            ? 'Fuel Finder v${snapshot.data!.version} (${snapshot.data!.buildNumber})'
+            : 'Fuel Finder';
+        return Card(
+          elevation: 0,
+          color: cs.surfaceContainerHighest,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.info_outline,
+                  color: cs.onSurface.withValues(alpha: 0.5),
+                  size: 20,
+                ),
+                const SizedBox(width: 10),
+                Text(label, style: Theme.of(context).textTheme.bodyMedium),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
