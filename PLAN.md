@@ -51,13 +51,15 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 5: Ana Ekran UI
+## Adim 5: Ana Ekran UI ✓ TAMAMLANDI
 **Branch:** `feature/home-screen`
 
-- [ ] Yakit turu secimi (Benzin 95, Motorin, LPG vb.)
-- [ ] Yaricap secimi (5 km, 10 km, 25 km vb.)
-- [ ] Arama/filtre butonu
-- [ ] Temel tema ve tasarim (Material Design)
+- [x] Yakit turu secimi (Motorin, Benzin 95, LPG vb. — ChoiceChip)
+- [x] Yaricap secimi (5 km, 10 km, 25 km, 50 km — ChoiceChip)
+- [x] Arama/filtre butonu (FilledButton)
+- [x] Temel tema ve tasarim (Material 3, kirmizi tema)
+- [x] Konum karti (GPS varsa otomatik, yoksa manuel sehir girisi)
+- [x] ResultsScreen placeholder ile navigasyon altyapisi
 
 ---
 
