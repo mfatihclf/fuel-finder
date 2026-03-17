@@ -63,13 +63,15 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 6: Sonuc Listesi Ekrani
+## Adim 6: Sonuc Listesi Ekrani ✓ TAMAMLANDI
 **Branch:** `feature/results-screen`
 
-- [ ] Yakinlik + fiyat siralamasiyla istasyon listesi
-- [ ] Her istasyonda: marka, ilce, fiyat, mesafe bilgisi
-- [ ] Siralama secenekleri (en ucuz, en yakin)
-- [ ] Bos sonuc durumu icin bilgilendirme
+- [x] Fiyat siralamasiyla istasyon listesi (ListView, loading/error/empty state)
+- [x] Her istasyonda: marka, ilce, fiyat, tarih bilgisi
+- [x] Siralama secenekleri (En Ucuz, İlçeye Göre — SegmentedButton)
+- [x] Bos sonuc durumu icin bilgilendirme (_EmptyView)
+- [x] Hata durumu icin retry butonu (_ErrorView)
+- [x] En ucuz 1-2-3 icin altin/gumus/bronz rozet
 
 ---
 
