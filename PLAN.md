@@ -18,16 +18,16 @@ Kullanicinin mevcut konumuna gore, sectigi yaricap icerisindeki en uygun akaryak
 
 ---
 
-## Adim 2: Python Backend API Olusturma (FastAPI)
+## Adim 2: Python Backend API Olusturma (FastAPI) ✓ TAMAMLANDI
 **Branch:** `feature/backend-api`
 
-- [ ] FastAPI kurulumu ve temel yapilandirma
-- [ ] Mevcut scraperlari REST API arkasina alma
-- [ ] Endpoint'ler: `GET /api/prices?city=istanbul&fuel_type=lpg`
-- [ ] Il, ilce, yakit turu bazinda fiyat sorgulama
-- [ ] Basit cache mekanizmasi (ayni sehir icin kisa sureli cache)
-- [ ] `requirements.txt` guncelleme
-- [ ] CORS ayarlari (Flutter uygulamasindan erisim icin)
+- [x] FastAPI kurulumu ve temel yapilandirma
+- [x] Mevcut scraperlari REST API arkasina alma
+- [x] Endpoint'ler: `GET /api/prices?city=istanbul&fuel_type=lpg`
+- [x] Il, ilce, yakit turu bazinda fiyat sorgulama
+- [x] Basit cache mekanizmasi (ayni sehir icin kisa sureli cache)
+- [x] `requirements.txt` guncelleme
+- [x] CORS ayarlari (Flutter uygulamasindan erisim icin)
 
 ---
 
